@@ -3,3 +3,6 @@ rails new blog --database=sqlite3 --skip-webpack-install --skip-spring --skip-li
 
 # Get Gemfile with custom dependencies, overwriting generated Gemfile
 wget https://raw.githubusercontent.com/hpi-swt2/rolodex-portal/preparation/Gemfile -O blog/Gemfile
+
+# Get updated dependencies in Gemfile, exclude gems in the deployment category
+blog/bin/bundle install --no-deployment
