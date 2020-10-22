@@ -7,5 +7,8 @@ wget https://raw.githubusercontent.com/hpi-swt2/rolodex-portal/preparation/Gemfi
 # Get updated dependencies in Gemfile, exclude gems in the deployment category
 blog/bin/bundle install --no-deployment
 
+# Generate initial controller
+blog/bin/rails generate controller Welcome index
+
 # Start the dev server, check if everything is ok
 blog/bin/rails server -u puma
