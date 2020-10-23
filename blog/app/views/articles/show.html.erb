@@ -1,0 +1,45 @@
+<%# https://guides.rubyonrails.org/getting_started.html#showing-articles %>
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+ 
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<%# https://guides.rubyonrails.org/getting_started.html#generating-a-controller %>
+<h2>Comments</h2>
+<% @article.comments.each do |comment| %>
+  <p>
+    <strong>Commenter:</strong>
+    <%= comment.commenter %>
+  </p>
+ 
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+<%# https://guides.rubyonrails.org/getting_started.html#generating-a-controller %>
+<h2>Add a comment:</h2>
+<%= form_with(model: [ @article, @article.comments.build ], local: true) do |form| %>
+  <p>
+    <%= form.label :commenter %><br>
+    <%= form.text_field :commenter %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+
+<%# https://guides.rubyonrails.org/getting_started.html#updating-articles %>
+<%= link_to 'Edit', edit_article_path(@article) %> |
+<%# https://guides.rubyonrails.org/getting_started.html#adding-links %>
+<%= link_to 'Back', articles_path %>

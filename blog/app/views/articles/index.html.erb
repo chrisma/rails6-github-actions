@@ -1,0 +1,26 @@
+<%# https://guides.rubyonrails.org/getting_started.html#listing-all-articles %>
+<h1>Listing Articles</h1>
+
+<%# https://guides.rubyonrails.org/getting_started.html#adding-links %>
+<%= link_to 'New article', new_article_path %>
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th colspan="2"></th>
+  </tr>
+
+  <% @articles.each do |article| %>
+    <tr>
+      <td><%= article.title %></td>
+      <td><%= article.text %></td>
+      <td><%= link_to 'Show', article_path(article) %></td>
+      <%# https://guides.rubyonrails.org/getting_started.html#updating-articles %>
+      <td><%= link_to 'Edit', edit_article_path(article) %></td>
+      <%# https://guides.rubyonrails.org/getting_started.html#deleting-articles %>
+      <td><%= link_to 'Destroy', article_path(article),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>
